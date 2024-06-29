@@ -1,2 +1,3 @@
+from .ProcessActivator import ProcessActivator
 
-active_processes = []
+PCall = ProcessActivator()
