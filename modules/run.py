@@ -1,4 +1,5 @@
 from modules.bot import D, Il
+from util import create_tables
 import asyncio
 
 
@@ -6,6 +7,7 @@ import asyncio
 
 
 async def main() -> None:
+    create_tables()
     await D.start_polling(Il)
 
 
