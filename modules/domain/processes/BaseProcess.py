@@ -6,8 +6,7 @@ class DataEvent:
     type: str = ""
     pars: dict[str, str | InputFile | list[list[IKBtn]] | IKMkp] = {}
 
-    @staticmethod
-    async def code(message: M, *args, **kwargs):
+    async def code(self, message: M, *args, **kwargs):
         raise NotImplementedError
 
     def __iadd__(self, row: list[IKBtn]):
@@ -43,7 +42,7 @@ class BaseProcess:
 
     async def __call__(self, msg: M, sleep_time=0.2):
         keys = self.events.keys()
-        for i in range(min(keys), max(keys)):
+        for i in range(min(keys), max(keys) + 1):
             if self[i] is None: continue
             await self[i].code(msg)
             await self.answer(message=msg, **self[i].for_send)

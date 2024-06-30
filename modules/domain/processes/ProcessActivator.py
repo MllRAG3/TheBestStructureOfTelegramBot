@@ -1,19 +1,20 @@
 from aiogram.types import Message as M
-from modules.errors.MessageIsInvalid import MessageIsInvalid
+from modules.domain.processes import *
 
 
 class ProcessActivator:
-    def __init__(self, message=None):
-        self.MESSAGE: M | None = message
+    def __init__(self, msg: M | None = None):
+        self.msg = msg
 
         # self.<command_1> = None
         # self.<command_2> = None
         # ...
         # self.<command_n> = None
 
-    def __getattribute__(self, item: str):
-        if self.MESSAGE is None: raise MessageIsInvalid
-        self.__dict__[item](self.MESSAGE)
+    async def execute(self, item: str) -> bool:
+        if self.msg is None: return False
+        await self.__dict__[item](self.msg)
+        return True
 
     def update(self, new: M):
-        self.MESSAGE = new
+        self.msg = new
