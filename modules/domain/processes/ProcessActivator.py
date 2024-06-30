@@ -15,6 +15,5 @@ class ProcessActivator:
         if self.MESSAGE is None: raise MessageIsInvalid
         self.__dict__[item](self.MESSAGE)
 
-    @classmethod
-    def update(cls, new: M):
-        return cls(new)
+    def update(self, new: M):
+        self.MESSAGE = new

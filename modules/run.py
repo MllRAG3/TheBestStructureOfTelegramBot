@@ -1,3 +1,4 @@
+"""Run this file to start bot"""
 from modules.bot import D, Il
 from util import create_tables
 import asyncio
@@ -7,6 +8,7 @@ import asyncio
 
 
 async def main() -> None:
+    """starts bot"""
     create_tables()
     await D.start_polling(Il)
 
