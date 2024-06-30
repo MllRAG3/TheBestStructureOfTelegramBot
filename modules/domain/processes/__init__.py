@@ -1,3 +1,3 @@
-from .ProcessActivator import ProcessActivator
-
-PCall = ProcessActivator()
+__all__ = [
+    # all processes that can be used
+]
