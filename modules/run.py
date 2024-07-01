@@ -1,23 +1,20 @@
 """Run this file to start bot"""
-from aiogram import types
-from aiogram import filters
-
-from modules.bot import D, Il
-from util import create_tables
-import asyncio
-from modules.domain import ProcessActivator
-
-PCall = ProcessActivator()  # update in every handler and then use .execute(...)
+from modules.bot import Il
+from modules.util import create_tables
+from modules.handlers import handlers_to_add
 
 
-# Place for your handlers:)
+def add_handlers() -> None:
+    for handler in handlers_to_add:
+        Il.add_handler(handler)
+        print(f"{handler.__name__.capitalize()} успешно добавлен!")
 
 
-async def main() -> None:
-    """starts bot"""
+def run_bot() -> None:
+    handlers_to_add()
     create_tables()
-    await D.start_polling(Il)
+    Il.run()
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    run_bot()
