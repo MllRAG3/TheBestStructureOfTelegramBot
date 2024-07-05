@@ -3,13 +3,13 @@ from pyrogram.handlers.handler import Handler
 
 
 class BaseHandler:
-    __name__ = "Базовый обработчик"
+    __name__ = "Unknown"
     HANDLER: Handler = Handler
     FILTER: Filter | None = None
 
-    def __call__(self, *args, **kwargs):
-        pass
+    async def func(self, *args, **kwargs):
+        raise NotImplementedError
 
     @property
     def pyrogram_handler(self):
-        return self.HANDLER(self, self.FILTER)
+        return self.HANDLER(self.func, self.FILTER)
