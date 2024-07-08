@@ -8,5 +8,5 @@ def create_tables() -> None:
         print("No database models created.")
         return
     with db:
-        db.create_tables([*models])
-    print(f"created models: {', '.join(models)}")
+        db.create_tables(models)
+    print(f"created models: {', '.join(map(lambda x: x.__name__, models))}")
