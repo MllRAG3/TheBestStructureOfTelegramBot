@@ -1,4 +1,4 @@
-from . import BaseHandler as B
+from . import BaseProcess as B
 from pyrogram import handlers, types
 from modules.step_stuff import NEXT_STEP
 
