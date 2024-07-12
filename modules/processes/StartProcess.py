@@ -1,8 +1,8 @@
-from . import BaseHandler as B
+from modules.processes.BaseProcess import BaseHandler
 from pyrogram import handlers, filters, types
 
 
-class StartHandler(B.BaseHandler):
+class StartHandler(BaseHandler):
     __name__ = "Обработчик команды /start"
     HANDLER = handlers.MessageHandler
     FILTER = filters.command("start")
