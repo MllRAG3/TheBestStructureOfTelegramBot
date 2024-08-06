@@ -4,6 +4,9 @@ from datetime import datetime
 
 
 class BaseModel(Model):
+    """
+    Базовая модель с автоматическим заполнением поля ID и сохранением времени создания, изменения
+    """
     ID = AutoField()
     created_at = DateTimeField(default=datetime.now)
     updated_at = DateTimeField(default=datetime.now)

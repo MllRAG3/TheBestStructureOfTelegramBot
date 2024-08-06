@@ -1,3 +1,4 @@
+"""Инициализация бота"""
 from pyrogram import Client
 from os import environ
 from typing import Final
