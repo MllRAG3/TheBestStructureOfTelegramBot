@@ -1,8 +1,5 @@
-from .Other import StartHandler
-from .StepHandler import NextStepHandler
+from .start import StartHandler
 
 handlers_to_add = [
-    NextStepHandler,
-
-    StartHandler,
+    StartHandler,  # like example
 ]
